@@ -8,13 +8,63 @@ use 5.032;
 # VERSION
 
 package FFI::Model::Type;
-package FFI::Model::Constant;
-package FFI::Model::Enum;
-package FFI::Model::Record;
-package FFI::Model::Struct;
-package FFI::Model::Union;
-package FFI::Model::ArrayStruct;
-package FFI::Model::Closure;
+
+package FFI::Model::Constant {
+  use Moose;
+
+  has name => (
+    is => 'rw',
+    isa => 'Str',
+    required => 1,
+  );
+
+  has value => (
+    is => 'rw',
+    required => 1,
+  );
+
+  has type => (
+    is => 'rw',
+    isa => 'Str',
+    required => 'rw',
+  );
+}
+
+package FFI::Model::Enum {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+
+package FFI::Model::Record {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+package FFI::Model::Struct {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+package FFI::Model::Union {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+package FFI::Model::ArrayStruct {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+package FFI::Model::ArrayUnion {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
+
+package FFI::Model::Closure {
+  use Moose;
+  extends 'FFI::Model::Type';
+}
 
 package FFI::Model::Function {
   use Moose;
