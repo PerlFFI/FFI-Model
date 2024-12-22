@@ -2,4 +2,7 @@ FFI-Model-*
 /.build/
 *.swp
 
-
+/FFI-Model-*
+/.build
+*.old
+*.orig
